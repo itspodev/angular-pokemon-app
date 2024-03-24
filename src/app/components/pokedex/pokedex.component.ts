@@ -2,6 +2,8 @@ import { Component, HostBinding, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Pokemon, Pokemons } from '../../entities/pokemonFr';
 import { PokemonService } from '../../services/pokemon.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { PokemonDetailsComponent } from '../pokemon-details/pokemon-details.component';
 
 @Component({
   selector: 'app-pokedex',
@@ -17,7 +19,10 @@ export class PokedexComponent {
   @Input()
   public search?: string;
 
-  constructor(private _pokemonService: PokemonService) {
+  constructor(
+    private _pokemonService: PokemonService,
+    private _ngbModal: NgbModal
+  ) {
     this.refreshPokemons();
   }
 
@@ -26,6 +31,11 @@ export class PokedexComponent {
   }
 
   public showPokemon(pokemon: Pokemon): void {
-    console.log(pokemon);
+    this._pokemonService.currentPokemon = pokemon;
+    this._ngbModal.open(PokemonDetailsComponent, {
+      centered: true,
+      scrollable: true,
+      animation: true,
+    });
   }
 }
