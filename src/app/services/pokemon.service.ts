@@ -31,6 +31,38 @@ export class PokemonService {
     return this.allFilteredPokemons || this.allPokemons || [];
   }
 
+  public setNextPokemon(): void {
+    const pokemons: Pokemons = this.displayedPokemons;
+    let index: number = pokemons.findIndex((p) => p == this.currentPokemon);
+    if (index < 0) {
+      throw 'Pokemon index not found';
+    }
+
+    if (index + 1 == pokemons.length) {
+      index = 0;
+    } else {
+      index++;
+    }
+
+    this.currentPokemon = pokemons[index];
+  }
+
+  public setPreviousPokemon(): void {
+    const pokemons: Pokemons = this.displayedPokemons;
+    let index: number = pokemons.findIndex((p) => p == this.currentPokemon);
+    if (index < 0) {
+      throw 'Pokemon index not found';
+    }
+
+    if (index == 0) {
+      index = pokemons.length - 1;
+    } else {
+      index--;
+    }
+
+    this.currentPokemon = pokemons[index];
+  }
+
   public getAllPokemons(search?: string): Observable<Pokemons> {
     return this._pokemonAPIService.getAllPokemons(search).pipe(
       map((pokemons: Pokemons) => {

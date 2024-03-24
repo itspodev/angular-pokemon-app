@@ -1,0 +1,40 @@
+<ng-container *ngIf="pokemon" class="container">
+  <figure class="d-none" *ngIf="pokemon.cry$ | async as pokemonCry">
+    <figcaption>Écouter {{ pokemon.name }}</figcaption>
+    <audio controls [src]="pokemonCry" autoplay></audio>
+    <a [href]="pokemonCry"> Télécharger audio </a>
+  </figure>
+  <div class="modal-header">
+    <div
+      class="d-flex align-items-center justify-content-center gap-2 flex-grow-1"
+    >
+      <button class="btn btn-dark" (click)="previous()">
+        <fa-icon [icon]="faArrowLeft"></fa-icon>
+      </button>
+      <h2>{{ pokemon.name }}</h2>
+      <span>N°{{ pokemon.id }}</span>
+      <button class="btn btn-dark" (click)="next()">
+        <fa-icon [icon]="faArrowRight"></fa-icon>
+      </button>
+    </div>
+    <button
+      type="button"
+      class="btn-close bg-light"
+      aria-label="Close"
+      (click)="closeModal()"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <div class="d-flex flex-column">
+      <img class="img-fluid" [src]="pokemon.image" [alt]="pokemon.name" />
+    </div>
+    <div>
+      <h2>Évolutions</h2>
+      @for (evolution of pokemon.apiEvolutions; track $index) {
+      <p>
+        {{ evolution.name }}
+      </p>
+      } @empty { Aucune évolution }
+    </div>
+  </div>
+</ng-container>
