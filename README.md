@@ -1,4 +1,15 @@
-# PokemonApp
+# Pokemon App
+
+**Stack :**
+
+- Angular 17
+- Bootstrap v5
+- SCSS/SASS
+- Material Angular
+- Ng-Bootstrap
+
+![Angular_Pokemon_App_Home](assets/images/previews/Home_Angular_Pokemon_App.png)
+![Angular_Pokemon_App_PokemonView](assets/images/previews/PokemonView_Angular_Pokemon_App.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.3.
 
