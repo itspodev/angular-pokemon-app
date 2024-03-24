@@ -8,8 +8,8 @@
 - Material Angular
 - Ng-Bootstrap
 
-![Angular_Pokemon_App_Home](assets/img/previews/Home_Angular_Pokemon_App.png)
-![Angular_Pokemon_App_PokemonView](assets/img/previews/PokemonView_Angular_Pokemon_App.png)
+![Angular_Pokemon_App_Home](src/assets/img/previews/Home_Angular_Pokemon_App.png)
+![Angular_Pokemon_App_PokemonView](src/assets/img/previews/PokemonView_Angular_Pokemon_App.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.3.
 
